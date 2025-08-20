@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,6 +7,10 @@ using System.Linq;
 
 namespace nilnul._bit_._TEST_.algebra_.pargoids.tab
 {
+	/// <summary>
+	/// use tab as the separator.
+	/// note: some editor such as Wps, recognizes comma, not tab;
+	/// </summary>
 	[TestClass]
 	public class UnitTest1
 	{
@@ -137,7 +141,7 @@ namespace nilnul._bit_._TEST_.algebra_.pargoids.tab
 
 			System.IO.File.WriteAllLines(
 				csv,
-				nilnul.obj.tups_.table.phrase_._CelSepByTabX.Lines(table)
+				nilnul.obj.tups.tbl.phrase_._CelSepByTabX.Lines(table)
 			);
 
 			var container=System.IO.Path.GetDirectoryName(csv);

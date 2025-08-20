@@ -130,7 +130,7 @@ namespace nilnul._bit_._TEST_.algebra_.cobiops.be_rig.tabByComma
 
 			System.IO.File.WriteAllLines(
 				csv,
-				nilnul.obj.tups_.table._PhraseX.Lines(view.ToTable())
+				nilnul.obj.tups.tbl._PhraseX.Lines(view.ToTable())
 			);
 
 			var container = System.IO.Path.GetDirectoryName(csv);

@@ -137,7 +137,7 @@ namespace nilnul._bit_._TEST_.algebra_.pargoids
 
 			System.IO.File.WriteAllLines(
 				csv,
-				nilnul.obj.tups_.table._PhraseX.Lines(table)
+				nilnul.obj.tups.tbl._PhraseX.Lines(table)
 			);
 
 			var container=System.IO.Path.GetDirectoryName(csv);

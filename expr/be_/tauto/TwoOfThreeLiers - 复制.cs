@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using System.Linq;
@@ -127,14 +127,13 @@ namespace nilnul.bit._test.expr.be.tauto
 			var possibleInterpretations=	k1.interprets.Where(
 				
 				x=>x.Value  && x.Key.Where(
-				
-				assi=> new nilnul.var.Set_ofVarI(a1,a2,a3).Contains( assi.Key)  
+					assi=> new nilnul.var.Set_ofVarI(a1,a2,a3).Contains( assi.Key)  
 			
 			).Where(  
 				
 				assign=>  assign.Value
 				
-				).Count()==1 );
+			).Count()==1 );
 
 			Debug.WriteLine(bit.var.set.state.Interprets.ToTxt(possibleInterpretations.Select(a=> new nilnul.bit.var.set.state.Interpret(a))));
 			Debug.WriteLine("==========");

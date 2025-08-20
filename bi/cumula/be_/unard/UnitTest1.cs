@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using nilnul.obj.str;
+using nilnul.obj.str.op_.of_;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -51,6 +53,61 @@ unardBe.be(cumulatorForOne)
 
 
 			}
+
+
+			var tmp = System.IO.Path.GetTempPath();
+
+
+			var csv = (
+				System.IO.Path.Combine(
+					tmp
+					,
+					DateTime.UtcNow.ToString("yyMMddHHmmssfffffff")+ ".csv"
+				)
+			);
+
+			var sw=System.IO.File.AppendText(
+				csv);
+			sw.WriteLine(
+
+				string.Join(",",
+				[
+					"op",
+
+				nameof(leftUnardBe)
+					, nameof(rightUnardBe)
+					,nameof(
+unardBe)
+
+,nameof(
+leftUnardBe)
+,
+				nameof(
+rightUnardBe)
+,nameof(
+unardBe)
+
+])
+
+			);
+
+
+			
+				dict.Select(
+					attr=>
+						$"{attr.Key},{nilnul.objs._PhraseX._Phrase_0finite( attr.Value.ToSeq<bool>())}"
+				).Each(l=>sw.WriteLine(l))
+			;
+
+			sw.Flush();
+			sw.Close();
+			sw.Dispose();
+
+			var container = System.IO.Path.GetDirectoryName(csv);
+			Process.Start(container);
+
+
+			Process.Start(csv);
 
 			foreach (var item in dict)
 			{

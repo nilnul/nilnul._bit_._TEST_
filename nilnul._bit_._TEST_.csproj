@@ -1,25 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--<Import Project="packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props" Condition="Exists('packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props')" />-->
+  <Import Project="..\..\.deps\MSTest.TestAdapter.3.8.3\build\net462\MSTest.TestAdapter.props" Condition="Exists('..\..\.deps\MSTest.TestAdapter.3.8.3\build\net462\MSTest.TestAdapter.props')" />
+  <Import Project="..\..\.deps\Microsoft.Testing.Extensions.Telemetry.1.6.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props" Condition="Exists('..\..\.deps\Microsoft.Testing.Extensions.Telemetry.1.6.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props')" />
+  <Import Project="..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\build\Microsoft.Testing.Platform.MSBuild.props" Condition="Exists('..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\build\Microsoft.Testing.Platform.MSBuild.props')" />
+  <Import Project="..\..\.deps\Microsoft.Testing.Platform.1.6.3\build\netstandard2.0\Microsoft.Testing.Platform.props" Condition="Exists('..\..\.deps\Microsoft.Testing.Platform.1.6.3\build\netstandard2.0\Microsoft.Testing.Platform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Deterministic>false</Deterministic>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{554132EC-1A69-4850-AC8D-0F3AAEFEB9EC}</ProjectGuid>
+    <ProjectGuid>{F72EBC8B-AF2E-4817-8E4D-698E3A7456E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>nilnul._bit_._TEST_</RootNamespace>
+    <RootNamespace>nilnul.bit</RootNamespace>
     <AssemblyName>nilnul._bit_._TEST_</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
-    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,7 +36,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -38,100 +44,114 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Symbols4Debug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Symbols4Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Symbol|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Symbol\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Nuget|AnyCPU'">
-    <OutputPath>bin\Nuget\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Sym2nuget|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Sym2nuget\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>latest</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\.deps\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.23.0.29, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.ApplicationInsights.2.23.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Testing.Extensions.MSBuild, Version=1.6.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\lib\netstandard2.0\Microsoft.Testing.Extensions.MSBuild.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Testing.Extensions.Telemetry, Version=1.6.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.Testing.Extensions.Telemetry.1.6.3\lib\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Testing.Extensions.TrxReport.Abstractions, Version=1.6.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.Testing.Extensions.TrxReport.Abstractions.1.6.3\lib\netstandard2.0\Microsoft.Testing.Extensions.TrxReport.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Testing.Extensions.VSTestBridge, Version=1.6.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.Testing.Extensions.VSTestBridge.1.6.3\lib\netstandard2.0\Microsoft.Testing.Extensions.VSTestBridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Testing.Platform, Version=1.6.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.Testing.Platform.1.6.3\lib\netstandard2.0\Microsoft.Testing.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TestPlatform.CoreUtilities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.TestPlatform.ObjectModel.17.13.0\lib\net462\Microsoft.TestPlatform.CoreUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TestPlatform.PlatformAbstractions, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.TestPlatform.ObjectModel.17.13.0\lib\net462\Microsoft.TestPlatform.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.TestPlatform.ObjectModel.17.13.0\lib\net462\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\MSTest.TestFramework.3.8.3\lib\net462\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\MSTest.TestFramework.3.8.3\lib\net462\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="nilnul._obj_._LIB_, Version=1.2.0.0, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\.deps\nilnul._obj_._LIB_.1.2.230720.123023-sym\lib\net481\nilnul._obj_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul._obj_._LIB_.1.2.250417.114235\lib\net48\nilnul._obj_._LIB_.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Collections.Immutable, Version=9.0.0.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Collections.Immutable.9.0.4\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Diagnostics.DiagnosticSource.9.0.4\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=9.0.0.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Reflection.Metadata.9.0.4\lib\net462\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="_nilnul_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\.deps\_nilnul_._LIB_.1.1.230710.94717-sym\lib\net481\_nilnul_._LIB_.dll</HintPath>
+      <HintPath>packages\_nilnul_._LIB_.1.1.241016.32119\lib\net48\_nilnul_._LIB_.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <Choose>
-    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
   <ItemGroup>
     <Compile Include="abgebra_\cobiops\be_\rig\comma\UnitTest1.cs" />
     <Compile Include="abgebra_\cobiops\be_\rig\vow\UnitTest1.cs" />
     <Compile Include="abgebra_\cobiops\be_\semi\commaed\UnitTest1.cs" />
-    <Compile Include="abgebra_\cobiop_\orAnd\be_\distri\vow\UnitTest1.cs" />
-    <Compile Include="expr\be\tauto\TwoOfThreeLiers - 复制.cs" />
-    <Compile Include="expr\be\tauto\TwoOfThreeLiers.cs" />
-    <Compile Include="expr\be\tauto\UnitTest1.cs" />
-    <Compile Include="expr_\call_\binary_\iff_\plain_\absorption\UnitTest1.cs" />
-    <Compile Include="expr_\closed\be_\tauto\of_\xorAnd_\not\UnitTest1 - Copy.cs" />
-    <Compile Include="expr_\closed\be_\tauto\of_\xorAnd_\union\UnitTest1 - Copy.cs" />
-    <Compile Include="expr_\closed\be_\tauto\TwoOfThreeLiers - 复制.cs" />
-    <Compile Include="expr_\closed\be_\tauto\UnitTest1 - Copy.cs" />
-    <Compile Include="expr\ident\UnitTest1.cs" />
-    <Compile Include="expr\infer\UnitTest1.cs" />
-    <Compile Include="expr_\closed_\call_\binary_\xor_\UnitTest1.cs" />
-    <Compile Include="expr_\closed_\natural\be_\nontauto\UnitTest1.cs" />
-    <Compile Include="expr\truthTable\UnitTest1.cs" />
     <Compile Include="abgebra_\cobiop_\andOr\be_\distri\vow\UnitTest1.cs" />
+    <Compile Include="abgebra_\cobiop_\orAnd\be_\distri\vow\UnitTest1.cs" />
+    <Compile Include="abgebra_\cumula\str\UnitTest1.cs" />
     <Compile Include="abgebra_\pargoids\tab\UnitTest1 - Copy.cs" />
     <Compile Include="abgebra_\pargoids\UnitTest1.cs" />
+    <Compile Include="bi\be_\associative\of_\nand\UnitTest1.cs" />
+    <Compile Include="bi\be_\associative\of_\ne\UnitTest1.cs" />
+    <Compile Include="bi\be_\associative\of_\or\UnitTest1.cs" />
+    <Compile Include="bi\be_\associative\of_\xor\UnitTest1.cs" />
+    <Compile Include="bi\cumula\be_\unard\UnitTest1.cs" />
+    <Compile Include="bi\re_\distributive\comma\UnitTest1.cs" />
+    <Compile Include="bi\re_\distributive\UnitTest1.cs" />
+    <Compile Include="bi_\eq\be_\associate\UnitTest1.cs" />
+    <Compile Include="bi_\ne\be_\associate\UnitTest1.cs" />
+    <Compile Include="bi_\ne\cumula_\one\be_\unard\UnitTest1.cs" />
+    <Compile Include="calc_\call_\duo_\UnitTest1.cs" />
+    <Compile Include="co\sortie\UnitTest1.cs" />
+    <Compile Include="expr\be_\tauto\TwoOfThreeLiers - 复制.cs" />
+    <Compile Include="expr\be_\tauto\TwoOfThreeLiers.cs" />
+    <Compile Include="expr\be_\tauto\UnitTest1.cs" />
+    <Compile Include="expr\b\UnitTest1.cs" />
+    <Compile Include="expr\ident\UnitTest1.cs" />
+    <Compile Include="expr\infer\UnitTest1.cs" />
+    <Compile Include="expr\truthTable\UnitTest1.cs" />
+    <Compile Include="expr\UnitTest1.cs" />
     <Compile Include="expr_\call_\binary_\and_\but\UnitTest1.cs" />
     <Compile Include="expr_\call_\binary_\and_\UnitTest1.cs" />
     <Compile Include="expr_\call_\binary_\iff\be_\contingent\UnitTest1 - Copy.cs" />
@@ -139,48 +159,43 @@
     <Compile Include="expr_\call_\binary_\iff\be_\notTauto\UnitTest1.cs" />
     <Compile Include="expr_\call_\binary_\iff\be_\tauto\vow\UnitTest1.cs" />
     <Compile Include="expr_\call_\binary_\iff\be_\tauto\vow_\associative\UnitTest1.cs" />
+    <Compile Include="expr_\call_\binary_\iff_\plain_\absorption\UnitTest1.cs" />
     <Compile Include="expr_\call_\binary_\iff_\tauto_\xor_orAndNand\UnitTest1.cs" />
+    <Compile Include="expr_\closed\be_\tauto\of_\xorAnd_\not\UnitTest1 - Copy.cs" />
+    <Compile Include="expr_\closed\be_\tauto\of_\xorAnd_\union\UnitTest1 - Copy.cs" />
+    <Compile Include="expr_\closed\be_\tauto\TwoOfThreeLiers - 复制.cs" />
+    <Compile Include="expr_\closed\be_\tauto\UnitTest1 - Copy.cs" />
+    <Compile Include="expr_\closed_\call_\binary_\xor_\UnitTest1.cs" />
+    <Compile Include="expr_\closed_\natural\be_\nontauto\UnitTest1.cs" />
     <Compile Include="expr_\closed_\natural_\imply_\tauto\UnitTest1.cs" />
     <Compile Include="expr_\closed_\plain_\delta9sect\UnitTest1.cs" />
     <Compile Include="expr_\infer_\UnitTest1.cs" />
-    <Compile Include="expr\b\UnitTest1.cs" />
-    <Compile Include="form_\call_\duo_\UnitTest1.cs" />
-    <Compile Include="of_\binary_\eq\be_\associate\UnitTest1.cs" />
-    <Compile Include="of_\binary_\ne\be_\associate\UnitTest1.cs" />
+    <Compile Include="nilnul0\bit0nul\abgebra_\cumula\str\UnitTest1.cs" />
     <Compile Include="of_\vec\set\be_\complete_\byCompoFunc_\ofOpNonpoly\UnitTest1.cs" />
     <Compile Include="of_\vec\set\be_\complete_\byCompoFunc_\ofVec_\projectionIni_\allVecs_\UnitTest1.cs" />
     <Compile Include="of_\vec\set\be_\complete_\byCompoFunc_\ofVec_\projectionIni_\UnitTest1.cs" />
     <Compile Include="of_\vec\set\be_\complete_\ofDelta9sect\UnitTest1.cs" />
-    <Compile Include="of_\binary\be_\associative\of_\ne\UnitTest1.cs" />
-    <Compile Include="of_\binary\be_\associative\of_\nand\UnitTest1.cs" />
-    <Compile Include="of_\binary\be_\associative\of_\or\UnitTest1.cs" />
-    <Compile Include="of_\binary\be_\associative\of_\xor\UnitTest1.cs" />
-    <Compile Include="of_\binary\cumulator\be_\unard\UnitTest1.cs" />
-    <Compile Include="of_\binary\re_\distributive\comma\UnitTest1.cs" />
-    <Compile Include="of_\binary\re_\distributive\UnitTest1.cs" />
-    <Compile Include="of_\binary_\ne\cumulator_\oneAsUnard\be_\unard\UnitTest1.cs" />
     <Compile Include="of_\vec\set\be_\complete_\ofNeMin\UnitTest1.cs" />
     <Compile Include="of_\vec\set\be_\complete_\ofTernary_\major\UnitTest1.cs" />
     <Compile Include="of_\vec\set\be_\complete_\ofTernary_\UnitTest1.cs" />
     <Compile Include="of_\vec\set\be_\complete_\UnitTest1.cs" />
     <Compile Include="proof\UnitTest1 - Copy.cs" />
     <Compile Include="proof\UnitTest1.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="expr\UnitTest1.cs" />
+    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="%28expr%29\equation_\" />
-    <Folder Include="%28expr%29\nilnul.bit._test.expr.stati\" />
-    <Folder Include="abgebra_\cobiop_\NewFolder1\" />
-    <Folder Include="abgebra_\pargoid\be_\" />
-    <Folder Include="abgebra_\pargoid_\" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Readme.md" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="abgebra_\triop_\nary9cobi_\" />
     <Folder Include="combine\" />
-    <Folder Include="expr\be\tauto\_twoOfThreeLiers\" />
+    <Folder Include="expr\be_\tauto\_twoOfThreeLiers\" />
     <Folder Include="expr\cannonic\" />
     <Folder Include="expr\eg\" />
-    <Folder Include="expr\tauto\imply\" />
+    <Folder Include="expr\tauto\" />
     <Folder Include="expr_\call_\binary_\closed_\" />
     <Folder Include="expr_\call_\binary_\iff\be_\contingent\vow\" />
     <Folder Include="expr_\call_\binary_\iff\be_\tauto\vow\ed\" />
@@ -189,24 +204,14 @@
     <Folder Include="expr_\closed_\natural\be_\tauto\" />
     <Folder Include="expr_\closed_\natural_\imply\" />
     <Folder Include="expr_\closed_\neMax\" />
-    <Folder Include="expr_\equiv\" />
     <Folder Include="expr_\infer_\NewFolder1\" />
     <Folder Include="expr_\tanta_\" />
-    <Folder Include="nilnul0\num\" />
-    <Folder Include="nulable\" />
     <Folder Include="of\" />
-    <Folder Include="of_\binary_\ne\cumulator\be_\" />
     <Folder Include="of_\vec\set\be_\complete_\byCompoFunc_\projectionIni_\ofVec\" />
     <Folder Include="of_\vec\set\be_\complete_\ofNeMin\ofVec_\" />
-    <Folder Include="_exprS\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-    <None Include="Readme.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="License.txt" Pack="true" PackagePath="" />
+    <None Include="License.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\_LIB_%281%28Git\nilnul._bit_._LIB_.csproj">
@@ -214,31 +219,34 @@
       <Name>nilnul._bit_._LIB_</Name>
     </ProjectReference>
   </ItemGroup>
-  <Choose>
-    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
+  <ItemGroup>
+    <Analyzer Include="..\..\.deps\MSTest.Analyzers.3.8.3\analyzers\dotnet\cs\MSTest.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\.deps\MSTest.Analyzers.3.8.3\analyzers\dotnet\cs\MSTest.Analyzers.dll" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Platform.1.6.3\build\netstandard2.0\Microsoft.Testing.Platform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Platform.1.6.3\build\netstandard2.0\Microsoft.Testing.Platform.props'))" />
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Platform.1.6.3\build\netstandard2.0\Microsoft.Testing.Platform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Platform.1.6.3\build\netstandard2.0\Microsoft.Testing.Platform.targets'))" />
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\build\Microsoft.Testing.Platform.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\build\Microsoft.Testing.Platform.MSBuild.props'))" />
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\build\Microsoft.Testing.Platform.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\build\Microsoft.Testing.Platform.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Extensions.Telemetry.1.6.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Extensions.Telemetry.1.6.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props'))" />
+    <Error Condition="!Exists('..\..\.deps\MSTest.TestAdapter.3.8.3\build\net462\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\MSTest.TestAdapter.3.8.3\build\net462\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\..\.deps\MSTest.TestAdapter.3.8.3\build\net462\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\MSTest.TestAdapter.3.8.3\build\net462\MSTest.TestAdapter.targets'))" />
+    <!--<Error Condition="!Exists('packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Platform.1.5.3\build\netstandard2.0\Microsoft.Testing.Platform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Platform.1.5.3\build\netstandard2.0\Microsoft.Testing.Platform.props'))" />
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.props'))" />
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.5.3\build\Microsoft.Testing.Platform.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\..\.deps\Microsoft.Testing.Extensions.Telemetry.1.5.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\Microsoft.Testing.Extensions.Telemetry.1.5.3\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props'))" />
+    <Error Condition="!Exists('..\..\.deps\MSTest.TestAdapter.3.7.3\build\net462\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\MSTest.TestAdapter.3.7.3\build\net462\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\..\.deps\MSTest.TestAdapter.3.7.3\build\net462\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\MSTest.TestAdapter.3.7.3\build\net462\MSTest.TestAdapter.targets'))" />-->
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <Import Project="..\..\.deps\Microsoft.Testing.Platform.1.6.3\build\netstandard2.0\Microsoft.Testing.Platform.targets" Condition="Exists('..\..\.deps\Microsoft.Testing.Platform.1.6.3\build\netstandard2.0\Microsoft.Testing.Platform.targets')" />
+  <Import Project="..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\build\Microsoft.Testing.Platform.MSBuild.targets" Condition="Exists('..\..\.deps\Microsoft.Testing.Platform.MSBuild.1.6.3\build\Microsoft.Testing.Platform.MSBuild.targets')" />
+  <Import Project="..\..\.deps\MSTest.TestAdapter.3.8.3\build\net462\MSTest.TestAdapter.targets" Condition="Exists('..\..\.deps\MSTest.TestAdapter.3.8.3\build\net462\MSTest.TestAdapter.targets')" />
+  <!--<Import Project="packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets" Condition="Exists('packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets')" />-->
 </Project>

@@ -92,7 +92,7 @@ namespace nilnul._bit_._TEST_.op_.binary.re_.distributive.comma
 
 			System.IO.File.WriteAllLines(
 				csv,
-				nilnul.obj.tups_.table._PhraseX.Lines(view.ToTable())
+				nilnul.obj.tups.tbl._PhraseX.Lines(view.ToTable())
 			);
 
 			var container = System.IO.Path.GetDirectoryName(csv);

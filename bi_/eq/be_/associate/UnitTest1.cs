@@ -40,9 +40,6 @@ namespace nilnul._bit_._TEST_.of_.binary_.eq.be_.associate
 					 y,z
 					 )
 				)
-
-
-
 			);
 
 			var truthTable = nilnul.bit.expr_.capsule.to_._CalibrateX._GetTruthTable_0capsule(expr);
@@ -50,8 +47,8 @@ namespace nilnul._bit_._TEST_.of_.binary_.eq.be_.associate
 			//var phrased= nilnul.
 
 			var isTauto = nilnul.bit.expr_.closed.be_.Tauto_generi.Singleton.be(
-						expr as ExprI_generi
-				);
+				expr as ExprI_generi
+			);
 
 
 			Debug.WriteLine(isTauto);
